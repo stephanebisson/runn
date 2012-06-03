@@ -1,0 +1,22 @@
+<div ng-controller="ScheduleController">
+	{{schedule.title}}
+	<table class="DataTable">
+		<tr>
+			<th></th>
+			<th>Monday</th>
+			<th>Tuesday</th>
+			<th>Wednesday</th>
+			<th>Thursday</th>
+			<th>Friday</th>
+			<th>Saturday</th>
+			<th>Sunday</th>
+		</tr>
+		<tr ng-repeat="week in schedule.weeks">
+			<td>{{$index+1}}</td>
+			<td ng-repeat="day in week.days">
+				{{day.activity}}<br/>
+				{{day.desc}}
+			</td>
+		</tr>
+	</table>
+</div>
