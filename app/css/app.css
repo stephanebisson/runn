@@ -1,5 +1,11 @@
 body {
     margin: 0px;
+    background: #C0C0C0;
+}
+
+.centered {
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .viewport {
@@ -11,6 +17,8 @@ body {
 
 .title {
     font : bold 17px Helvetica;
+    text-align: center;
+    padding: 10px;
 }
 
 table.DataTable {
@@ -19,11 +27,10 @@ table.DataTable {
     font : bold 17px Helvetica;
     padding : 0;
     color : #666;
-    margin : 15px 10px 17px 10px;
+    margin-top: 20px;
     vertical-align : middle;
     text-align : center;
     -webkit-border-radius : 8px;
-    width : 80%;
 }
 table.DataTable td {
     padding : 8px 10px 8px 10px;
