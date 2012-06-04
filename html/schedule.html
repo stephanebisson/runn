@@ -1,5 +1,5 @@
-<div ng-controller="ScheduleController">
-	<div class="title">{{schedule.title}}</div>
+<subview id="schedule" ng-controller="ScheduleController">
+	<div class="centered">{{schedule.title}}</div>
 	<table class="DataTable centered">
 		<tr>
 			<th></th>
@@ -13,10 +13,10 @@
 		</tr>
 		<tr ng-repeat="week in schedule.weeks">
 			<td>{{$index+1}}</td>
-			<td ng-repeat="day in week.days" ng-click="click()">
+			<td ng-repeat="day in week.days" ng-click="click(day)" class="{{day.success && 'success'}}">
 				{{day.activity}}<br/>
 				{{day.desc}}
 			</td>
 		</tr>
 	</table>
-</div>
+</subview>
