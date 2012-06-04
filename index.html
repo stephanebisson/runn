@@ -21,8 +21,12 @@
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/schedule-controller.js"></script>
 	<script type="text/javascript" src="js/schedule.js"></script>
+	
+	<script type="text/javascript">
+		function BlockMove(event) { event.preventDefault(); }
+	</script>
 </head>
-<body>
+<body ontouchmove="BlockMove(event);">
     <app>
         <view id="main" ui-background-style="striped" ui-navigation-status="current">
 		    <navbar>
