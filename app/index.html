@@ -1,36 +1,41 @@
 <!DOCTYPE html>
-<html ng-app="runn">
-	<head>
-		<title>Runn</title>
-		
-		<!-- Prevent scaling -->
-	 	<meta name="viewport" content="user-scalable=no, width=device-width" />
+<html lang="en" manifest="cache.manifest" ng-app="runn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-startup-image" href="startup.png">
+	<link rel="apple-touch-icon" href="img/runn-128x128.png" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Runn</title>
+    <link rel="stylesheet" href="lib/chui.css">
+	<link rel="stylesheet" href="css/app.css">
+    <style type="text/css">
+        /* Local Styles Here */
 
-	 	<!-- Eliminate url and button bars if added to home screen -->
-	 	<meta name="apple-mobile-web-app-capable" content="yes" />
+    </style>
+    <script src="lib/chocolatechip.js" type="text/javascript"></script>
+    <script src="lib/chui.js" type="text/javascript"></script>
 
-	 	<!-- Choose how to handle the phone status bar -->
-	 	<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-	 	<!-- Specify a 1004x768 start-up image. -->
-	 	<!-- <link rel="apple-touch-startup-image" href="./startup.png" /> -->
-
-	 	<!-- Choose a 72x72 image for the icon -->
-	 	<link rel="apple-touch-icon" href="img/runn-128x128.png" />
-	 
-		<script type="text/javascript">
-			function BlockMove(event) { event.preventDefault(); }
-		</script>
-	
-		<script type="text/javascript" src="lib/angular-1.0.0rc10.js"></script>
-		<script type="text/javascript" src="js/app.js"></script>
-		<script type="text/javascript" src="js/schedule-controller.js"></script>
-		<script type="text/javascript" src="js/schedule.js"></script>
-		<link rel="stylesheet" href="css/app.css" type="text/css" media="screen" charset="utf-8">
-	</head>
-	<body ontouchmove="BlockMove(event);">
-		<div class="viewport centered">
-		<ng-include src="'html/schedule.html'">
-		</div>
-	</body>
+	<script type="text/javascript" src="lib/angular-1.0.0rc10.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/schedule-controller.js"></script>
+	<script type="text/javascript" src="js/schedule.js"></script>
+</head>
+<body>
+    <app>
+        <view id="main" ui-background-style="striped" ui-navigation-status="current">
+		    <navbar>
+		        <h1>Runn</h1>
+		    </navbar>
+		    <subview ui-associations="withNavBar withBottomToolbar">
+		        <scrollpanel>
+					<ng-include src="'html/schedule.html'">
+		        </scrollpanel>
+		    </subview>
+		    <toolbar ui-placement="bottom">
+		    </toolbar>
+		</view>
+    </app>
+</body>
 </html>
