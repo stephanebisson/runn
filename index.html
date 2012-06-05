@@ -32,14 +32,32 @@
 		    <navbar>
 		        <h1>Runn</h1>
 		    </navbar>
-		    <subview ui-associations="withNavBar withBottomToolbar">
-		        <scrollpanel>
-					<ng-include src="'html/schedule.html'">
-		        </scrollpanel>
-		    </subview>
-			<subview id="other"></subview>
-		    <toolbar ui-placement="bottom">
-		    </toolbar>
+			<subview ui-associations="withNavBar">
+				<tableview>
+                    <tablecell href="#schedule" ui-implements="detail-disclosure">
+                        <celltitle>Schedule</celltitle>
+						<cellsubtitle>so this is where I get my schedule</cellsubtitle>
+                    </tablecell>
+                    <tablecell href="#other" ui-implements="detail-disclosure">
+                        <celltitle>other</celltitle>
+                    </tablecell>
+                </tableview>
+			</subview>
+			<subview id="other">
+				this is the other subview
+			</subview>
+		</view>
+		<view id="schedule" ui-background-style="striped" ui-navigation-status="upcoming">
+			<navbar>
+				<uibutton ui-bar-align="left" ui-implements="back">
+                    <pointer></pointer>
+                    <label>Back</label>
+                </uibutton>
+		        <h1>Schedule</h1>
+		    </navbar>
+			<scrollpanel>
+				<ng-include src="'html/schedule.html'">
+	        </scrollpanel>
 		</view>
     </app>
 </body>
