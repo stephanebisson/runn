@@ -1,13 +1,15 @@
-runn.factory('schedule', function(){
-    var rest = function(){ return {activity: 'rest'}};
-    var run = function(timeR1){
+runn.factory('schedule', function () {
+    var rest = function () {
+        return {activity: 'rest'};
+    };
+    var run = function (timeR1) {
         return {
-            activity: 'run', 
+            activity: 'run',
             desc: timeR1 + 'm@R1'
-        }
+        };
     };
     return {
-        query: function(){
+        query: function () {
             return {
                 title: 'Half-Marathon Group B',
                 weeks: [
