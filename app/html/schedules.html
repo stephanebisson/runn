@@ -1,0 +1,18 @@
+<view ng-controller="SchedulesController" id="schedules" ui-background-style="striped"
+      ui-navigation-status="upcoming">
+    <navbar>
+        <uibutton ui-bar-align="left" ui-implements="back">
+            <pointer></pointer>
+            <label>Back</label>
+        </uibutton>
+        <h1>Schedules</h1>
+    </navbar>
+    <scrollpanel>
+        <tableview>
+            <tablecell ng-repeat="schedule in schedules" href="#schedule" ui-implements="detail-disclosure">
+                <celltitle>{{schedule.name}}</celltitle>
+                <cellsubtitle>{{schedule.desc}}</cellsubtitle>
+            </tablecell>
+        </tableview>
+    </scrollpanel>
+</view>

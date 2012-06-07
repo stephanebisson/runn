@@ -1,22 +1,31 @@
-<view id="schedule" ng-controller="ScheduleController">
-    <div class="centered">{{schedule.title}}</div>
-    <table class="DataTable centered">
-        <tr>
-            <th></th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
-            <th>Sunday</th>
-        </tr>
-        <tr ng-repeat="week in schedule.weeks">
-            <td>{{$index+1}}</td>
-            <td ng-repeat="day in week.days" ng-click="click(day)" class="{{day.success && 'success'}}">
-                {{day.activity}}<br/>
-                {{day.desc}}
-            </td>
-        </tr>
-    </table>
+<view ng-controller="ScheduleController" id="challenge" ui-background-style="striped" ui-navigation-status="upcoming">
+    <navbar>
+        <uibutton ui-bar-align="left" ui-implements="back">
+            <pointer></pointer>
+            <label>Back</label>
+        </uibutton>
+        <h1>My Challenge - {{schedule.title}}</h1>
+    </navbar>
+    <scrollpanel>
+        <table class="DataTable centered">
+            <tr>
+                <th></th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr ng-repeat="week in schedule.weeks">
+                <td>{{$index+1}}</td>
+                <td ng-repeat="day in week.days" ng-click="click(day)" class="{{day.success && 'success'}}">
+                    {{day.activity}}<br/>
+                    {{day.desc}}
+                </td>
+            </tr>
+        </table>
+        </div>
+    </scrollpanel>
 </view>

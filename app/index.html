@@ -21,6 +21,7 @@
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/schedule-controller.js"></script>
     <script type="text/javascript" src="js/schedule.js"></script>
+    <script type="text/javascript" src="js/schedules-controller.js"></script>
 
     <script type="text/javascript">
         function BlockMove(event) {
@@ -30,37 +31,9 @@
 </head>
 <body ontouchmove="BlockMove(event);">
 <app>
-    <view id="main" ui-background-style="striped" ui-navigation-status="current">
-        <navbar>
-            <h1>Runn</h1>
-        </navbar>
-        <subview ui-associations="withNavBar">
-            <tableview>
-                <tablecell href="#schedule" ui-implements="detail-disclosure">
-                    <celltitle>Schedule</celltitle>
-                    <cellsubtitle>so this is where I get my schedule</cellsubtitle>
-                </tablecell>
-                <tablecell href="#other" ui-implements="detail-disclosure">
-                    <celltitle>other</celltitle>
-                </tablecell>
-            </tableview>
-        </subview>
-        <subview id="other">
-            this is the other subview
-        </subview>
-    </view>
-    <view id="schedule" ui-background-style="striped" ui-navigation-status="upcoming">
-        <navbar>
-            <uibutton ui-bar-align="left" ui-implements="back">
-                <pointer></pointer>
-                <label>Back</label>
-            </uibutton>
-            <h1>Schedule</h1>
-        </navbar>
-        <scrollpanel>
-            <ng-include src="'html/schedule.html'">
-        </scrollpanel>
-    </view>
+    <ng-include src="'html/main.html'"></ng-include>
+    <ng-include src="'html/schedule.html'"></ng-include>
+    <ng-include src="'html/schedules.html'"></ng-include>
 </app>
 </body>
 </html>
