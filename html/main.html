@@ -1,0 +1,23 @@
+<view id="main" ui-background-style="striped" ui-navigation-status="current">
+    <navbar>
+        <h1>Runn</h1>
+    </navbar>
+    <subview ui-associations="withNavBar">
+        <tableview>
+            <tablecell href="#challenge" ui-implements="detail-disclosure">
+                <celltitle>My Challenge</celltitle>
+                <cellsubtitle>so this is where I get my schedule</cellsubtitle>
+            </tablecell>
+            <tablecell href="#schedules" ui-implements="detail-disclosure">
+                <celltitle>Schedules</celltitle>
+                <cellsubtitle>browse all available schedules</cellsubtitle>
+            </tablecell>
+            <tablecell href="#other" ui-implements="detail-disclosure">
+                <celltitle>other</celltitle>
+            </tablecell>
+        </tableview>
+    </subview>
+    <subview id="other">
+        this is the other subview
+    </subview>
+</view>
