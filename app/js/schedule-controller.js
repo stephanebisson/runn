@@ -1,6 +1,6 @@
 runn.controller('ScheduleController',
     ['$scope', 'schedule', function ($scope, schedule) {
-        $scope.schedule = schedule.query();
+        $scope.schedule = schedule.get('Half-Marathon Group B');
         $scope.click = function (day) {
             if (day.activity !== 'run') return;
 

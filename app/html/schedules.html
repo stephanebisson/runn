@@ -9,7 +9,10 @@
     </navbar>
     <scrollpanel>
         <tableview>
-            <tablecell ng-repeat="schedule in schedules" href="#schedule" ui-implements="detail-disclosure">
+            <tablecell ng-repeat="schedule in schedules" 
+					   href="#schedule" 
+					   schedule-name="{{schedule.name}}" 
+                       ui-implements="detail-disclosure">
                 <celltitle>{{schedule.name}}</celltitle>
                 <cellsubtitle>{{schedule.desc}}</cellsubtitle>
             </tablecell>
