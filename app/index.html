@@ -14,11 +14,15 @@
     <script src="lib/chocolatechip.js" type="text/javascript"></script>
     <script src="lib/chui.js" type="text/javascript"></script>
 
-    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular.js"></script>
+	<script type="text/javascript" src="lib/angular-resource.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/schedule-controller.js"></script>
     <script type="text/javascript" src="js/schedule.js"></script>
     <script type="text/javascript" src="js/schedules-controller.js"></script>
+    <script type="text/javascript" src="js/welcome-controller.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+
 
     <script type="text/javascript">
         function BlockMove(event) {
@@ -28,9 +32,13 @@
 </head>
 <body ontouchmove="BlockMove(event);">
 <app>
-    <ng-include src="'html/main.html'"></ng-include>
+	hello {{username}}<br/>
+    <!-- <ng-include src="'html/main.html'"></ng-include>
     <ng-include src="'html/schedule.html'"></ng-include>
-    <ng-include src="'html/schedules.html'"></ng-include>
+    <ng-include src="'html/schedules.html'"></ng-include> -->
+
+	<ng-view></ng-view>
+
 </app>
 </body>
 </html>

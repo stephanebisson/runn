@@ -1,6 +1,6 @@
-# backlog
+# Backlog
 
-## stories
+## Stories
 
 ### View next workout
 
@@ -20,8 +20,30 @@ As a lazy wanna-be athlete
 I want to see what I have accomplished so far  
 So I can get a little extra motivation
 
+### Login
 
-## tech tasks
+As a shy wanna-be athlete  
+I want to authenticate into the app  
+So that only me can see my stuff
 
-* full couch integration
-* replace chip nav by angular nav
+### OAuth (fb, twitter, weibo)
+
+As a show-off wanna-be athlete  
+I want to login using social media  
+So I can share my workout with my friends
+
+## Tech tasks
+
+* app
+  * replace chip nav by angular nav
+  * prepare data
+  * support multiple languages (en, fr, ch)
+* test
+  * e2e tests (to check deployment and security)
+* devops
+  * extract iris deployer into its own node module project (couch potato)
+  * make deploy script take care of security config
+  * use promise api to chain actions in deployment script
+
+
+
