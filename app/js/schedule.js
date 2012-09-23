@@ -45,13 +45,12 @@ runn.factory('schedule', ['$http', function ($http) {
             var data = [];
             $http({
                 method: 'get', 
-                url: '/couch/runn/_all_docs?include_docs=true',
+                url: '/runn/_all_docs?include_docs=true',
                 transformResponse: function(r){ 
                     var result = [];
                     angular.forEach(angular.fromJson(r).rows, function(a){
                         result.push(a.doc);
                     });
-                    // console.log(result);
                     return result; 
                 }
             }).success(function(d){

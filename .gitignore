@@ -1,1 +1,4 @@
 .idea
+app_document.js
+node_modules
+.DS_Store
