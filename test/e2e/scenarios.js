@@ -29,6 +29,26 @@ describe('my app', function() {
         expect(binding('error')).toBe('Login failed');
     });
   });
+  
+  describe('logout link', function(){
+      
+      beforeEach(function(){
+          input('username').enter('admin');
+          input('password').enter('admin');
+          element('#login').click();
+          
+      });
+      
+      it('should show on the training page', function(){
+          expect(element('#logout').text()).toBe('logout');
+      });
+      
+      it('should allow to logout', function(){
+            element('#logout').click();
+            expect(browser().location().url()).toBe("/login");
+            expect(element('#logout')).toBeUndefined();
+        });
+  });
 
 
   xdescribe('view2', function() {

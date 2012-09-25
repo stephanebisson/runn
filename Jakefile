@@ -9,6 +9,12 @@ task('e2e', function (params) {
         {printStdout: true});
 });
 
+desc('run e2e tests continuously');
+task('e2e-watch', function (params) {
+    jake.exec('testacular start ./config/testacular-e2e-watch.conf.js', 
+        {printStdout: true});
+});
+
 desc('run unit tests');
 task('ut', function (params) {
     jake.exec('testacular start ./config/testacular.conf.js', 
