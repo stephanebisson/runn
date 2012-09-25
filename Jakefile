@@ -5,7 +5,14 @@ task('default', function (params) {
 
 desc('run e2e tests');
 task('e2e', function (params) {
-    jake.exec('./scripts/e2e-test.sh', {printStdout: true});
+    jake.exec('testacular start ./config/testacular-e2e.conf.js', 
+        {printStdout: true});
+});
+
+desc('run unit tests');
+task('ut', function (params) {
+    jake.exec('testacular start ./config/testacular.conf.js', 
+        {printStdout: true});
 });
 
 desc('deploy to couch');
