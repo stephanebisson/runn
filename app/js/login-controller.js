@@ -1,4 +1,4 @@
-runn.controller('WelcomeController', 
+runn.controller('LoginController', 
     ['$scope', '$location', 'auth', 
     function($scope, $location, auth){
         $scope.login = function(){

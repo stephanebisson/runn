@@ -7,6 +7,10 @@ describe('my app', function() {
   beforeEach(function() {
     browser().navigateTo('/apps/runn/index.html');
   });
+  
+  it('should go to login page', function(){
+      expect(browser().location().url()).toBe("/login");
+  });
 
   describe('login page', function() {
 
@@ -21,7 +25,7 @@ describe('my app', function() {
         input('username').enter('asdf');
         input('password').enter('qwerty');
         element('#login').click();
-        expect(browser().location().url()).toBe("");
+        expect(browser().location().url()).toBe("/login");
         expect(binding('error')).toBe('Login failed');
     });
   });
