@@ -1,5 +1,8 @@
 <div ng-controller="WelcomeController">
-name: <input type="text" ng-model="username"></br>
-pass: <input type="password" ng-model="password"></br>
-<a ng-click="login()">GO</a>
+	<form ng-submit="login()">
+		name: <input type="text" id="user" ng-model="username"></br>
+		pass: <input type="password" id="pass" ng-model="password"></br>
+		<a ng-click="login()" id="login">GO</a><br />
+		<div id="error">{{error}}</div>
+</form>
 </div>

@@ -5,6 +5,9 @@ runn.controller('WelcomeController',
             auth.login($scope.username, $scope.password)
                 .success(function(){
                     $location.path('/mytraining');
+                })
+                .error(function(){
+                    $scope.error = 'Login failed';
                 });
         };
     }

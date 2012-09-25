@@ -8,7 +8,6 @@
     <link rel="apple-touch-icon" href="img/runn-128x128.png"/>
     <link rel="shortcut icon" href="favicon.ico">
     <title>Runn</title>
-    <link rel="stylesheet" href="lib/chui.css">
     <link rel="stylesheet" href="css/app.css">
 
     <script type="text/javascript" src="lib/angular.js"></script>
@@ -19,6 +18,7 @@
     <script type="text/javascript" src="js/schedule.js"></script>
 
     <script type="text/javascript" src="js/welcome-controller.js"></script>
+    <script type="text/javascript" src="js/schedule-controller.js"></script>
 
 
     <script type="text/javascript">
@@ -27,10 +27,8 @@
         }
     </script>
 </head>
-<body ontouchmove="BlockMove(event);">
-<app>
-	<ng-include src="'html/user.html'"></ng-include>
-	<ng-view></ng-view>
-</app>
-</body>
+	<body ontouchmove="BlockMove(event);">
+		<ng-include src="'html/user.html'"></ng-include>
+		<ng-view></ng-view>
+	</body>
 </html>
