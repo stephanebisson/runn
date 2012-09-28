@@ -1,25 +1,40 @@
 angular.module('runn', [])
+    .factory('currentUser', ['$cookies', function($cookies){
+        var key = 'CURRENT_USER';
+        var f = function(user){
+            if (user) {
+                $cookies[key] = user;
+            }
+            return $cookies[key];
+        };
+        f.clear = function(){
+            delete $cookies[key];
+        }; 
+        return f;
+    }])
     .controller('CurrentUserController', 
-        ['$scope', 'auth', '$location', '$rootScope', 
-        function($scope, auth, $location, $rootScope){
+        ['$scope', 'auth', '$location', 'currentUser', 
+        function($scope, auth, $location, currentUser){
             var goBackToLoginPage = function(){
                 $location.path('/login');
+                currentUser.clear();
             };
             $scope.logout = function(){
                 auth.logout().then(goBackToLoginPage, goBackToLoginPage);
             };
             $scope.isLoggedIn = function(){
-                return !!$rootScope.username;
+                return !!currentUser();
             };
         }]
     )
     .controller('LoginController', 
-        ['$scope', '$location', 'auth', 
-        function($scope, $location, auth){
+        ['$scope', '$location', 'auth', 'currentUser', 
+        function($scope, $location, auth, currentUser){
             $scope.login = function(){
                 auth.login($scope.username, $scope.password)
                     .success(function(){
                         $location.path('/mytraining');
+                        currentUser($scope.username);
                     })
                     .error(function(){
                         $scope.error = 'Login failed';
