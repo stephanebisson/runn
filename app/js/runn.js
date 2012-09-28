@@ -25,6 +25,9 @@ angular.module('runn', [])
             $scope.isLoggedIn = function(){
                 return !!currentUser();
             };
+            $scope.getUsername = function(){
+                return currentUser();
+            };
         }]
     )
     .controller('LoginController', 

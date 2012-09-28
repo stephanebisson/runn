@@ -1,4 +1,4 @@
-<div ng-controller="CurrentUserController" ng-show="isLoggedIn()" class="pull-rightrun">
-	<strong>hello <span id="currentUser" ng-bind="username"></span></strong>
+<div ng-controller="CurrentUserController" ng-show="isLoggedIn()" class="pull-right">
+	<strong>hello <span id="currentUser">{{getUsername()}}</span></strong>
 	<a id="logout" ng-click="logout()">logout</a>
 </div>

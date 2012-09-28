@@ -1,19 +1,35 @@
-<div ng-controller="LoginController">
-	<div>
+<div class="tabbable">
+	<div class="tab-pane" id="login-tab" ng-controller="LoginController" title="Login">
 		<form ng-submit="login()">
-		  <legend>Welcome</legend>
-		  <label>Username</label>
-		  <input type="text" ng-model="username" placeholder="Username">
-		  <label>Password</label>
-		  <input type="text" ng-model="password" placeholder="Password">
-		  <label class="checkbox">
-		    <input type="checkbox"> Remember me
-		  </label>
-		  <button type="submit" class="btn" id="login">Login</button>
-		  <div ng-show="error" class="alert" id="error">
-			<strong>Oups! </strong>
-			{{error}}
-		  </div>
+			<legend>Welcome</legend>
+			<label>Username</label>
+			<input type="text" ng-model="username" placeholder="Username">
+			<label>Password</label>
+			<input type="text" ng-model="password" placeholder="Password">
+			<label class="checkbox">
+			<input type="checkbox"> Remember me
+			</label>
+			<button type="submit" class="btn" id="login">Login</button>
+			<div ng-show="error" class="alert" id="error">
+			<strong>Oups! </strong>{{error}}
+			</div>
 		</form>
 	</div>
-<div>
+	<div class="tab-pane" id="signup-tab" title="Signup">
+		<form ng-submit="signup()">
+			<legend>Signup</legend>
+			<label>Name</label>
+			<input type="text" ng-model="name" placeholder="Name">
+			<label>Username</label>
+			<input type="text" ng-model="username" placeholder="Username">
+			<label>Password</label>
+			<input type="text" ng-model="password" placeholder="Password">
+			<label></label>
+			<button type="submit" class="btn" id="signup">Signup</button>
+			<div ng-show="error" class="alert" id="error">
+			<strong>Oups! </strong>{{error}}
+			</div>
+		</form>
+		
+	</div>
+</div>

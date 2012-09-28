@@ -1,5 +1,5 @@
 var runn = angular.module('app', 
-    ['ngResource', 'ngCookies', 'ngCouch', 'otherStuff', 'runn'])
+    ['ngResource', 'ngCookies', 'bootstrap', 'ngCouch', 'otherStuff', 'runn'])
     .config(function($routeProvider){
         $routeProvider
             .when('/login', {
