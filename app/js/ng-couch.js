@@ -26,25 +26,35 @@ angular.module('ngCouch', [])
                 throw 'not implemented';
             }
         };
-        var listExtension = {
-            add: function(doc){
-                var self = this;
-                var p = $http({
+        var addDocFn = function(name){
+            return function(doc){
+                return $http({
                     method: 'post',
-                    url: '/accomplishments',
+                    url: '/' + name,
                     data: doc
                 });
-                p.success(function(d){
-                    self.push(angular.extend(doc, d));
-                });
-            }
+            };
         };
-        var transformer = function(data){
-            data = angular.fromJson(data);
-            var docs = data.rows.map(function(r){
-                return angular.extend(r.doc, docExtension);
-            });
-            return angular.extend(docs, listExtension);
+        var listExtensionFn = function(name){
+            return {
+                add: function(doc){
+                    var self = this;
+                    var p = addDocFn(name)(doc);
+                    p.success(function(d){
+                        self.push(angular.extend(doc, d));
+                    });
+                    return p;
+                }
+            };
+        };
+        var transformerFn = function(name){
+            return function(data){
+                data = angular.fromJson(data);
+                var docs = data.rows.map(function(r){
+                    return angular.extend(r.doc, docExtension);
+                });
+                return angular.extend(docs, listExtensionFn(name));
+            };
         };
         return function(name){
             return {
@@ -52,7 +62,7 @@ angular.module('ngCouch', [])
                     return $http({
                         method: 'get',
                         url: '/' + name + '/_all_docs?include_docs=true',
-                        transformResponse: transformer
+                        transformResponse: transformerFn(name)
                     });
                 },
                 get: function(){
