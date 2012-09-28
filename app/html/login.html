@@ -1,8 +1,19 @@
 <div ng-controller="LoginController">
-	<form ng-submit="login()">
-		name: <input type="text" id="user" ng-model="username"></br>
-		pass: <input type="password" id="pass" ng-model="password"></br>
-		<a ng-click="login()" id="login">GO</a><br />
-		<div id="error">{{error}}</div>
-</form>
-</div>
+	<div>
+		<form ng-submit="login()">
+		  <legend>Welcome</legend>
+		  <label>Username</label>
+		  <input type="text" ng-model="username" placeholder="Username">
+		  <label>Password</label>
+		  <input type="text" ng-model="password" placeholder="Password">
+		  <label class="checkbox">
+		    <input type="checkbox"> Remember me
+		  </label>
+		  <button type="submit" class="btn" id="login">Login</button>
+		  <div ng-show="error" class="alert" id="error">
+			<strong>Oups! </strong>
+			{{error}}
+		  </div>
+		</form>
+	</div>
+<div>

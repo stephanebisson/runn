@@ -8,8 +8,13 @@
     <link rel="apple-touch-icon" href="img/runn-128x128.png"/>
     <link rel="shortcut icon" href="favicon.ico">
     <title>Runn</title>
-    <link rel="stylesheet" href="css/app.css">
 
+    <link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.css">
+	
+    <script type="text/javascript" src="lib/jquery/jquery.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/bootstrap.js"></script>
     <script type="text/javascript" src="lib/angular/angular.js"></script>
 	<script type="text/javascript" src="lib/angular/angular-resource.js"></script>
 
@@ -24,9 +29,11 @@
         }
     </script>
 </head>
-	<body ontouchmove="BlockMove(event);">
-		<fork-me></fork-me>
+<body ontouchmove="BlockMove(event);">
+	<div class="container">
+		<h1>r u n n</h1>
 		<ng-include src="'html/user.html'"></ng-include>
 		<ng-view></ng-view>
-	</body>
+	</div>
+</body>
 </html>
