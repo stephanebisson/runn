@@ -45,14 +45,69 @@ angular.module('runn', [])
             };
         }
     ])
-    .factory('schedule', ['$http', '$resource', function ($http, $resource) {
-
-        return $resource('/runn/:id', null, 
-            {
-                query: {
-                    method: 'GET', 
-                    isArray:true, 
-                    params: {'id': '_all_docs', 'include_docs': true}}, 
-                }
-        );
-    }]);
+    .controller('SignupController', 
+        ['$scope', 
+        function($scope){
+            
+    }])
+    .controller('TrainingController', 
+    ['$scope', 'trainings', 'accomplishments', 
+    function($scope, trainings, accomplishments){
+        trainings.query().success(function(data){
+            $scope.title = data[0].name;
+            $scope.workouts = data[0].workouts;
+        });
+        accomplishments.query().success(function(a){
+            $scope.accomplishments = a;
+        });
+        $scope.accomplish = function(id, workout){
+            $scope.workoutIndex = id;
+            $scope.workoutDesc = workout;
+            $scope.workoutDate = new Date();
+            $scope.showConfirmForm = true;
+        };
+        $scope.confirm = function(){
+            $scope.accomplishments.add({
+                index: $scope.currentWorkout,
+                workout: $scope.workoutDesc, 
+                date: $scope.workoutDate
+            });
+            $scope.showConfirmForm = false
+        };
+        $scope.cancel = function(){
+            $scope.showConfirmForm = false;
+        };
+    }])
+    .factory('trainings', ['couchResource', function (couchResource) {
+        return couchResource('trainings');
+    }])
+    .factory('accomplishments', ['couchResource', function(couchResource){
+        return couchResource('accomplishments');
+        
+    }])
+    .factory('scheduler', function(){
+        var oneDay = 24*60*60*1000;
+        return {
+            calendar: function(program, startDate){
+                startDate = Date.parse(startDate) - oneDay;
+                
+                var nextDay = function(){
+                    return new Date(startDate += oneDay);
+                };
+                
+                var workoutToDay = function(w){
+                    return {
+                        workout: w,
+                        date: nextDay()
+                    };
+                };
+                
+                return {
+                    days: program.workouts.map(workoutToDay)
+                };
+            },
+            getNextWorkout: function(){
+                return 'tbd';
+            }
+        };
+    });

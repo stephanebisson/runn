@@ -1,3 +1,30 @@
-<div>
-	my training schedule here
+<h2>my training</h2>
+<div ng-controller="TrainingController">
+	<div class="row-fluid">
+		<p>I'm doing <strong>{{title}}</strong></p>
+	</div>
+	<div class="row-fluid">
+		<div class="span4">
+			<ol>
+				<li ng-repeat="w in workouts">
+					{{w}}
+					<a class="" ng-click="accomplish($index, w)">Done</a>
+				</li>
+			</ol>
+		</div>
+		<div class="span4">
+			<form ng-submit="confirm()" ng-show="showConfirmForm" name="workoutForm">
+				<label>Workout</label>
+				<input type="text" ng-model="workoutDesc" required>
+				<label>Date</label>
+				<input type="date" ng-model="workoutDate" required>
+				<button type="submit" class="btn btn-primary" ng-disabled="workoutForm.$invalid">Yes</button>
+				<button ng-click="cancel()" class="btn">Nevermind</button>
+			</form>
+		</div>
+		<div class="span4">
+			<span ng-repeat="a in accomplishments | orderBy:'date'">
+				{{a.workout}} {{a.date | date:'MM/dd/yyyy'}}<br/></span>
+		</div>
+	</div>
 </div>

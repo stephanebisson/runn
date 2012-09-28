@@ -50,18 +50,21 @@ describe('my app', function() {
         });
   });
 
-
-  xdescribe('view2', function() {
- 
-    beforeEach(function() {
-      browser().navigateTo('#/view2');
-    });
-
-
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 2/);
-    });
-
+  describe('user journey', function(){
+      it('does everything but the kitchen sink', function(){
+          // click signup tab
+          // enter name, username, password
+          
+          // click signup
+          // select 1 training program and start date
+          // confirm
+          // view training schedule
+          // view next workout details
+          // mark workout as done
+          // view next workout
+          // mark workout as attempted
+          // view next workout (overdue)
+      });
   });
+
 });

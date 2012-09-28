@@ -3,7 +3,7 @@ var runn = angular.module('app',
     .config(function($routeProvider){
         $routeProvider
             .when('/login', {
-                templateUrl: 'html/login.html'
+                templateUrl: 'html/welcome.html'
             })
             .when('/mytraining', {
                 templateUrl: 'html/mytraining.html'

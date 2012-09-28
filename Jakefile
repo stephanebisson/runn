@@ -21,6 +21,12 @@ task('ut', function (params) {
         {printStdout: true});
 });
 
+desc('auto-run unit tests');
+task('ut-watch', function (params) {
+    jake.exec('testacular start ./config/testacular-watch.js', 
+        {printStdout: true});
+});
+
 desc('deploy to couch');
 task('deploy', function (password) {
   jake.exec('node ./scripts/deploy.js ' + password, {printStdout: true});
