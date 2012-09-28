@@ -20,6 +20,12 @@ As a lazy wanna-be athlete
 I want to see what I have accomplished so far  
 So I can get a little extra motivation
 
+### Signin
+
+As a not-so-well-organized athlete  
+I want to create an account in runn  
+So I can start to track my run
+
 ### Login
 
 As a shy wanna-be athlete  
@@ -35,9 +41,9 @@ So I can share my workout with my friends
 ## Tech tasks
 
 * app
-  * replace chip nav by angular nav
   * prepare data
   * support multiple languages (en, fr, ch)
+  * couchdb api (fluent-style with promises)
 * test
   * e2e tests (to check deployment and security)
 * devops
