@@ -2,12 +2,12 @@ var util = require('util'),
     fs   = require('fs'),
     dive = require('dive');
 
-var username = 'admin'; //process.argv[2];
-var password = process.argv[2];
-//var host = 'sbisson.iriscouch.com';
-var host = '127.0.0.1:5984';
-var docUrl = '/apps/runn';
-var url = username + ':' + password + '@' + host + docUrl;
+// var username = 'admin'; //process.argv[2];
+// var password = process.argv[2];
+// //var host = 'sbisson.iriscouch.com';
+// var host = '127.0.0.1:5984';
+// var docUrl = '/apps/runn';
+// var url = username + ':' + password + '@' + host + docUrl;
 
 var generateAppDocument = function(callback){
     var contentTypes = {
@@ -51,14 +51,18 @@ var updateDocument = function(url, rev, documentFile, callback){
     });
 };
 
-generateAppDocument(function(doc){
-    var docFile  = './app_document.js';
-    fs.writeFileSync(docFile, JSON.stringify(doc));
-    getLatestRev(url, function(rev){
-        updateDocument(url, rev, docFile, function(err, resp){
-            console.log('done:', err || resp);
-        });
-    });  
-});
+var deploy = function(host, username, password) {
+    var docUrl = '/apps/runn';
+    var url = username + ':' + password + '@' + host + docUrl;    
+    generateAppDocument(function(doc){
+        var docFile  = './app_document.js';
+        fs.writeFileSync(docFile, JSON.stringify(doc));
+        getLatestRev(url, function(rev){
+            updateDocument(url, rev, docFile, function(err, resp){
+                console.log('done:', err || resp);
+            });
+        });  
+    });
+};
 
-
+exports.deploy = deploy;
