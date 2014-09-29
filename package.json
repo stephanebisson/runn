@@ -1,0 +1,24 @@
+{
+  "name": "runn",
+  "version": "0.0.0",
+  "description": "A simple ipad-friendly web app to manage my marathon training schedule (angularjs, couchdb, node, jake)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stephanebisson/runn.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "gitHead": "1dad95f59a103f6985ab78b4503d8b3097eef3d7",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "jake": "",
+    "testacular":""
+  }
+}
